@@ -8,3 +8,14 @@
     justify-content: flex-end;
     padding-right: 50px;
 }
+
+.container-fluid {
+    width: 100%;
+    padding: 10px 0;
+}
+
+#button {
+    display: block;
+    margin: 20px auto; 
+    padding: 10px 20px;
+}
