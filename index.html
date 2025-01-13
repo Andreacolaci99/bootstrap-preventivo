@@ -10,7 +10,7 @@
 <body class="container">
       <div>
            <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid bg-dark">
+            <div id="boolFactory" class="container-fluid bg-dark">
               <a class="navbar-brand text-white" href="#">Bool Factory</a>
               <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -56,7 +56,7 @@
                 <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
               </div>
               <label for="select" class="workType">Tipo di lavoro</label>
-              <select class="form-select mt-2" aria-label="Default select example">
+              <select id="workType" class="form-select mt-2" aria-label="Default select example">
                 <option selected>Seleziona il tipo di lavoro</option>
                 <option value="1">Sviluppo Frontend</option>
                 <option value="2">Sviluppo Backend</option>
@@ -68,7 +68,7 @@
               </div>
               <div class="promoCode">
                 <label for="promo-code" class="form-label">Codice promozionale (opzionale)</label>
-                <input type="text" class="form-control" id="promo-code" value="" required>
+                <input type="text" class="form-control" id="promo-code" value="" >
                 <div class="valid-feedback">
               </div>
              </div>
