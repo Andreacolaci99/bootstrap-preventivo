@@ -1,29 +1,32 @@
 let selectInput = document.querySelector(`#workType`)
 const submitButton = document.querySelector(`#button`)
-let frontend = 15.30;
-let backend = 20.50;
-let analyses = 33.60;
+const finalPriceContainer = document.querySelector(`#finalPriceContainer`)
 
 submitButton.addEventListener(`click`, function(event) {
     event.preventDefault()
 
-    if(selectInput.value === 1){
+   let finalPrice = 10;
+   let selectInputValue = selectInput.value
+   console.log(selectInputValue)
+
+    if(selectInputValue === "1"){
  
-        let frontend = frontend * 10;
+        finalPrice *= 15.30;
 
-    }else if(selectInput.value === 2){
+    }else if(selectInputValue === "2"){
 
-        let backend = backend * 10;
+        finalPrice *= 20.50;
 
-    }else if(selectInput.value === 3){
+    }else if(selectInputValue === "3"){
 
-        let analyses = analyses * 10;
+        finalPrice *= 33.60;
 
     }else{
 
-        alert(`Selezionare tipo di lavoro`);
+       alert(`Selezionare tipo di lavoro`);
+       return;
 
     }
-    console.log(selectInput)
-    finalPriceContainer.innerHtml = `PREZZO FINALE ${selectInput}€`
+    console.log(finalPrice)
+    finalPriceContainer.innerHTML = `PREZZO FINALE ${finalPrice.toFixed(2)}€`
 })

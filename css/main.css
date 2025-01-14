@@ -19,3 +19,8 @@
     margin: 20px auto; 
     padding: 10px 20px;
 }
+
+#finalPriceContainer{
+    font-size: 32px; 
+    font-weight: 800; 
+}
