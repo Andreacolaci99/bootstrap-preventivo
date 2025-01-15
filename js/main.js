@@ -5,6 +5,7 @@ const nameInput = document.querySelector(`#validationCustom01`);
 const surnameInput = document.querySelector(`#validationCustom02`);
 const emailInput = document.querySelector(`#exampleInputEmail1`);
 const privacyCheckbox = document.querySelector(`#exampleCheck1`);
+const discountCode = ["YHDNU32","JANJC63","PWKCN25","SJDPO96","POCIE24"];
 
 submitButton.addEventListener(`click`, function (event) {
     event.preventDefault();
@@ -59,12 +60,25 @@ submitButton.addEventListener(`click`, function (event) {
         finalPrice *= 33.6;
     }
 
+    const promoCodeValue = document.querySelector(`#promo-code`).value
+    const validCode = checkIfCodeIsGood(discountCode,promoCodeValue)
+
+    
+
     console.log(finalPrice);
     finalPriceContainer.innerHTML = `PREZZO FINALE ${finalPrice.toFixed(2)}€`;
 });
 
-// Funzione di validazione email
+function checkIfCodeIsGood(array, value){
+    if(array && value){
+        alert(`Hai diritto ad uno sconto del 25% sul prezzo finale`)
+    }else{
+        alert(`Il codice inserito non è corretto !! Pagherai prezzo intero`)
+    }
+}
+
 function validateEmail(email) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
+
 }
