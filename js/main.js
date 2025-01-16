@@ -61,16 +61,20 @@ submitButton.addEventListener(`click`, function (event) {
     }
 
     const promoCodeInput = document.querySelector("#promo-code").value.trim(); 
+    
     if (promoCodeInput === "") {
-        alert("Non hai inserito alcun codice promozionale. Pagherai tariffa normale.");
+
+        alert("Non hai inserito alcun codice promozionale.");
+
     } else if (discountCode.includes(promoCodeInput)) {
 
         finalPrice *= 0.75;
 
         alert("Hai diritto ad un codice sconto del 25% sul prezzo finale.");
+
     } else {
 
-        alert("Il codice promozionale inserito non è valido. Il prezzo rimane invariato.");
+        alert("Il codice promozionale inserito non è valido.");
     }
 
     finalPriceContainer.innerHTML = `PREZZO FINALE: ${finalPrice.toFixed(2)}€`;
