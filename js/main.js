@@ -32,16 +32,16 @@ submitButton.addEventListener(`click`, function (event) {
         isValid = false;
     }
 
+        // Validazione Select Tipo di lavoro
+        let selectInputValue = selectInput.value;
+        if (selectInputValue === "") {
+            alert("Selezionare il tipo di lavoro.");
+            isValid = false;
+        }
+    
     // Validazione Privacy Policy
     if (!privacyCheckbox.checked) {
         alert("Devi accettare la Privacy Policy.");
-        isValid = false;
-    }
-
-    // Validazione Select Tipo di lavoro
-    let selectInputValue = selectInput.value;
-    if (selectInputValue === "") {
-        alert("Selezionare il tipo di lavoro.");
         isValid = false;
     }
 
@@ -50,7 +50,7 @@ submitButton.addEventListener(`click`, function (event) {
         return;
     }
 
-    // Calcolo del prezzo finale
+
     let finalPrice = 10;
     if (selectInputValue === "1") {
         finalPrice *= 15.3;
@@ -60,22 +60,22 @@ submitButton.addEventListener(`click`, function (event) {
         finalPrice *= 33.6;
     }
 
-    const promoCodeValue = document.querySelector(`#promo-code`).value
-    const validCode = checkIfCodeIsGood(discountCode,promoCodeValue)
+    const promoCodeInput = document.querySelector("#promo-code").value.trim(); 
+    if (promoCodeInput === "") {
+        alert("Non hai inserito alcun codice promozionale. Pagherai tariffa normale.");
+    } else if (discountCode.includes(promoCodeInput)) {
 
-    
+        finalPrice *= 0.75;
 
-    console.log(finalPrice);
-    finalPriceContainer.innerHTML = `PREZZO FINALE ${finalPrice.toFixed(2)}€`;
+        alert("Hai diritto ad un codice sconto del 25% sul prezzo finale.");
+    } else {
+
+        alert("Il codice promozionale inserito non è valido. Il prezzo rimane invariato.");
+    }
+
+    finalPriceContainer.innerHTML = `PREZZO FINALE: ${finalPrice.toFixed(2)}€`;
 });
 
-function checkIfCodeIsGood(array, value){
-    if(array && value){
-        alert(`Hai diritto ad uno sconto del 25% sul prezzo finale`)
-    }else{
-        alert(`Il codice inserito non è corretto !! Pagherai prezzo intero`)
-    }
-}
 
 function validateEmail(email) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
